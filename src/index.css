@@ -1,1 +1,110 @@
-<source file not found>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border-subtle;
+  }
+
+  body {
+    @apply bg-bg-primary text-text-primary font-sans antialiased;
+    overflow: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #3A4060; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #4A5280; }
+
+  /* Selection */
+  ::selection {
+    @apply bg-accent-blue/30 text-text-primary;
+  }
+}
+
+@layer components {
+  .gradient-ai-border {
+    background: linear-gradient(135deg, #0EA5E9, #22D3EE);
+  }
+
+  .gradient-card {
+    background: linear-gradient(180deg, #1E2130 0%, #181B28 100%);
+  }
+
+  .gradient-sidebar {
+    background: linear-gradient(180deg, #161922 0%, #12151E 100%);
+  }
+
+  .ai-glow {
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.15), 0 0 40px rgba(34, 211, 238, 0.08);
+  }
+}
+
+/* ---- CSS Animations (framer-motion replacement) ---- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideLeft {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeSlideRight {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); }
+  to { transform: translateY(0); }
+}
+
+@keyframes slideOutUp {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-20px); }
+}
+
+@keyframes slideOutLeft {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(-30px); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes scaleOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.9); }
+}
+
+/* Hover / active utility classes for motion shim */
+.motion-hover-lift {
+  transition: transform 0.2s ease;
+}
+.motion-hover-lift:hover {
+  transform: translateY(-2px);
+}
+.motion-active-scale:active {
+  transform: scale(0.97);
+}
